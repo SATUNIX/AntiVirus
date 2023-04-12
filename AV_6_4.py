@@ -1,3 +1,9 @@
+#12/4/2023
+'''
+THIS PROGRAM SUPPLYS BASIC CONFIG TO CLAM AV AND SENDS EMAIL UPDATES
+AACSOLUTIONS
+ANTHONY GRACE
+'''
 import time
 import configparser
 import subprocess
