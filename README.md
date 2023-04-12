@@ -21,11 +21,55 @@ Features
 
 Configuration:
 
-The configuration is managed through the config.ini file, which should be located in the same directory as the ClamAVScanner.py script. The file contains the following sections:
+The configuration is managed through the config.ini file, which should be located in the same directory as the ClamAVScanner.py script. The file contains the following sections: (Make sure your quarantine directory is setup correctly) (see below)  
 
     Network: Specifies the subnet_address and excluded_machine
     ClamAV: Specifies the quarantine_dir and scan_options
     Outlook: Specifies the email_address, email_password, and recipient_email
+
+Configuration of quarantine DIR: 
+
+Choose a location where you want to create the quarantine directory. For example, you can create a directory named "quarantine" in the /var directory. To do this, open your terminal and run the following command:
+
+    bash
+
+sudo mkdir /var/quarantine
+
+This command creates a new directory named "quarantine" in the /var directory. Make sure to set appropriate permissions for the directory so that ClamAV can move files into it:
+
+bash
+
+sudo chown clamav:clamav /var/quarantine
+sudo chmod 750 /var/quarantine
+
+Replace "clamav:clamav" with the appropriate user and group that ClamAV is running under on your system.
+
+Specify the quarantine directory when running ClamAV:
+When running ClamAV, use the --move option followed by the path to your quarantine directory to move infected files to the quarantine directory. For example:
+
+bash
+
+    sudo clamscan -r --move=/var/quarantine /path/to/scan
+
+    This command scans the /path/to/scan directory recursively and moves any infected files it finds to the /var/quarantine directory.
+
+In the ClamAVScanner script you provided earlier, the quarantine directory is specified in the config.ini file. You can set the quarantine directory path in the ClamAV section like this:
+
+csharp
+
+[ClamAV]
+quarantine_dir = /var/quarantine
+
+This path will be used in the network_scan() method when running the quarantine_command.
+Installation: 
+
+cd 
+mkdir apps 
+cd apps 
+#(Or wherever you keep your git apps)
+git clone {gitclone url}
+sudo chmod +x *
+pip install -r requirements.txt 
 
 Usage:
 
