@@ -6,7 +6,9 @@ RUNS ON A NETWORKED KALI MACHINE FOR AV SCANNING OF RELATED SERVERS
 STRAIGHT THROUGH CABLE
 
 AACSOLUTIONS
+https://www.aacsolutions.com.au/
 ANTHONY GRACE
+https://github.com.au/SATUNIX
 '''
 #TODO: Networked quarantine to seperate machine 
 import time
