@@ -1,4 +1,7 @@
 #!/bin/bash
+#Anthony Grace 
+#TCD - GPL3.0 
+#This software comes with absolutely no warranty
 
 function root_scan {
     echo "---- Finding world writable files from root ----"
